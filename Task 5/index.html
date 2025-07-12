@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechBlog - Full Stack Web Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                
+                <div class="logo">
+                    <h1>TechBlog</h1>
+                </div>
+
+                
+                <nav class="nav-desktop">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Articles</a>
+                    <a href="#" class="nav-link">Categories</a>
+                    <a href="#" class="nav-link">Authors</a>
+                    <a href="#" class="nav-link">About</a>
+                </nav>
+
+              
+                <div class="search-container">
+                    <div class="search-box">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Search articles..." class="search-input">
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                        <svg class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                    </button>
+
+                    <button id="mobileMenuToggle" class="mobile-menu-toggle">
+                        <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            
+            <nav id="mobileNav" class="nav-mobile">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Articles</a>
+                <a href="#" class="nav-link">Categories</a>
+                <a href="#" class="nav-link">Authors</a>
+                <a href="#" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <div id="readingProgress" class="reading-progress"></div>
+
+    
+    <main class="main">
+        <div class="container">
+            
+            <div id="articleDetail" class="article-detail hidden">
+                <button id="backButton" class="back-button">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m12 19-7-7 7-7"></path>
+                        <path d="M19 12H5"></path>
+                    </svg>
+                    Back to articles
+                </button>
+                <div id="articleContent"></div>
+            </div>
+
+        
+            <div id="homeView">
+                
+                <section class="hero">
+                    <h1 class="hero-title">
+                        Welcome to <span class="gradient-text">TechBlog</span>
+                    </h1>
+                    <p class="hero-description">
+                        Discover the latest insights, tutorials, and trends in web development, 
+                        programming, and technology. Join our community of passionate developers 
+                        and stay ahead of the curve.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">Explore Articles</button>
+                        <button class="btn btn-secondary">Join Community</button>
+                    </div>
+                </section>
+
+               
+                <section id="statsSection" class="stats-section">
+                    
+                </section>
+
+               
+                <section class="category-filter">
+                    <div id="categoryButtons" class="category-buttons">
+                    </div>
+                </section>
+
+
+                <div id="searchInfo" class="search-info hidden">
+                    
+                </div>
+
+                <div id="loadingSpinner" class="loading-spinner hidden">
+                    <div class="spinner"></div>
+                </div>
+                <section id="featuredSection" class="featured-section">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <div class="section-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"></polygon>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2>Featured Articles</h2>
+                                <p>Hand-picked content from our top contributors</p>
+                            </div>
+                        </div>
+                        <div class="trending-indicator">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23,6 13.5,15.5 8.5,10.5 1,18"></polyline>
+                                <polyline points="17,6 23,6 23,12"></polyline>
+                            </svg>
+                            <span>Trending this week</span>
+                        </div>
+                    </div>
+                    <div id="featuredArticles" class="featured-articles">
+                        
+                    </div>
+                </section>
+
+                
+                <section id="articlesSection" class="articles-section">
+                    <div class="section-header">
+                        <h2 id="articlesSectionTitle">Latest Articles</h2>
+                        <p id="articlesCount">0 articles</p>
+                    </div>
+                    <div id="articlesGrid" class="articles-grid">
+                        
+                    </div>
+                </section>
+
+                
+                <div id="noResults" class="no-results hidden">
+                    <div class="no-results-icon">📝</div>
+                    <h3>No articles found</h3>
+                    <p id="noResultsMessage">No articles available</p>
+                    <button id="clearFilters" class="btn btn-primary">Clear Filters</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="gradient-text">TechBlog</h3>
+                    <p>Your go-to source for web development tutorials, programming insights, 
+                       and the latest technology trends. Built with passion for the developer community.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul id="footerCategories">
+                        
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" class="footer-link">About Us</a></li>
+                        <li><a href="#" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">Privacy</a></li>
+                        <li><a href="#" class="footer-link">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 TechBlog. Built with HTML, CSS, and JavaScript. 
+                   Optimized for performance and accessibility.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
